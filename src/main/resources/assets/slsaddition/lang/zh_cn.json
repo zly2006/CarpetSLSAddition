@@ -1,0 +1,6 @@
+{
+  "carpet.rule.maxVillagersInABlock.desc": "每个方块中最大村民数量，设置-1为无限制",
+  "carpet.rule.obtainableReinforcedDeepSlate.desc": "当铁砧在64个深板岩的凋落物上时，可以获得强化深板岩",
+  "carpet.rule.skipTicksForJoblessVillager.desc": "村民没有工作时，跳过村民的tick",
+  "carpet.rule.creativeNoInfinitePickup.desc": "创造模式下，玩家不能无限制地拾取物品"
+}

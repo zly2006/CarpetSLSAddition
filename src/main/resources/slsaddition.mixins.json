@@ -5,9 +5,11 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "AccessorPlayerAbilities",
+    "MixinAbstractSignBlock",
     "MixinFallingBlockEntity",
     "MixinItemEntity",
     "MixinPlayerInventory",
+    "MixinSpawnHelper",
     "MixinVillagerEntity"
   ],
   "client": [

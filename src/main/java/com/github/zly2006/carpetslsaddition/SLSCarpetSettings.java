@@ -16,4 +16,8 @@ public class SLSCarpetSettings {
     public static int maxVillagersInABlock = -1;
     @Rule(categories = {CARPET_ID, RuleCategory.CREATIVE})
     public static boolean creativeNoInfinitePickup = false;
+    @Rule(categories = {CARPET_ID})
+    public static boolean autoUrl = false;
+    @Rule(categories = {CARPET_ID})
+    public static boolean noBatSpawning = false;
 }

@@ -2,5 +2,7 @@
   "carpet.rule.obtainableReinforcedDeepSlate.desc": "When an anvil falls on 64 dropped deepslates, they will be turned in a reinforced deepslate instead of disappearing.",
   "carpet.rule.skipTicksForJoblessVillager.desc": "Villagers will skip ticks if they have no job.",
   "carpet.rule.maxVillagersInABlock.desc": "The maximum number of villagers that can be in a block, set to -1 to disable.",
-  "carpet.rule.creativeNoInfinitePickup.desc": "If my inventory is full, don't pick up items in creative mode."
+  "carpet.rule.creativeNoInfinitePickup.desc": "If my inventory is full, don't pick up items in creative mode.",
+  "carpet.rule.autoUrl.desc": "Automatically add click event to URLs in chat.",
+  "carpet.rule.noBatSpawning.desc": "Prevents bats from spawning."
 }

@@ -6,9 +6,13 @@
   "mixins": [
     "AccessorPlayerAbilities",
     "MixinAbstractSignBlock",
+    "MixinBlock",
     "MixinFallingBlockEntity",
+    "MixinItem",
     "MixinItemEntity",
+    "MixinPlayerEntity",
     "MixinPlayerInventory",
+    "MixinSettingsManager",
     "MixinSpawnHelper",
     "MixinVillagerEntity"
   ],

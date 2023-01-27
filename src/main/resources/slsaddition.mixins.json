@@ -9,7 +9,6 @@
     "MixinBlock",
     "MixinFallingBlockEntity",
     "MixinItem",
-    "MixinItemEntity",
     "MixinPlayerEntity",
     "MixinPlayerInventory",
     "MixinSettingsManager",

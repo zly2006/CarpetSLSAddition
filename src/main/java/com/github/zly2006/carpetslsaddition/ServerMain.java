@@ -2,32 +2,16 @@ package com.github.zly2006.carpetslsaddition;
 
 import carpet.CarpetExtension;
 import carpet.CarpetServer;
-import carpet.api.settings.SettingsManager;
 import com.google.common.collect.Maps;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import com.mojang.brigadier.CommandDispatcher;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.Version;
-import net.minecraft.command.CommandRegistryAccess;
-import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.recipe.Ingredient;
-import net.minecraft.recipe.ShapedRecipe;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.command.CommandManager;
-import net.minecraft.server.command.ServerCommandSource;
-import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.collection.DefaultedList;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.List;
 import java.util.Map;
 
 public class ServerMain implements ModInitializer, CarpetExtension {
@@ -52,18 +36,6 @@ public class ServerMain implements ModInitializer, CarpetExtension {
         this.server = server;
         CarpetServer.settingsManager.parseSettingsClass(SLSCarpetSettings.class);
         ((SettingsManagerAccessor) CarpetServer.settingsManager).loadSettings();
-        if (false) {
-            ItemStack stack = new ItemStack(Items.STONE_PICKAXE);
-            stack.setCustomName(Text.empty().formatted(Formatting.LIGHT_PURPLE).append("黑曜石镐"));
-            stack.getOrCreateSubNbt(MOD_ID).putString(ITEM_NAME, OBSIDIAN_PICKAXE);
-            DefaultedList<Ingredient> ingredients = DefaultedList.ofSize(9, Ingredient.EMPTY);
-            ingredients.set(0, Ingredient.ofItems(Items.OBSIDIAN));
-            ingredients.set(1, Ingredient.ofItems(Items.OBSIDIAN));
-            ingredients.set(2, Ingredient.ofItems(Items.OBSIDIAN));
-            ingredients.set(4, Ingredient.ofItems(Items.STICK));
-            ingredients.set(7, Ingredient.ofItems(Items.STICK));
-            server.getRecipeManager().setRecipes(List.of(new ShapedRecipe(new Identifier(MOD_ID, "recipe.obsidian_pickaxe"), MOD_ID, 3, 3, ingredients, stack)));
-        }
     }
 
     @Override
@@ -91,21 +63,5 @@ public class ServerMain implements ModInitializer, CarpetExtension {
                 .map(entry -> Map.entry(entry.getKey(), entry.getValue().getAsString()))
                 .forEach(entry -> translation.put(entry.getKey(), entry.getValue()));
         return translation;
-    }
-
-    @Override
-    public void registerCommands(CommandDispatcher<ServerCommandSource> dispatcher, CommandRegistryAccess commandBuildContext) {
-        dispatcher.register(CommandManager.literal("hat")
-                .requires(ServerCommandSource::isExecutedByPlayer)
-                .executes(context -> {
-                    ServerPlayerEntity player = context.getSource().getPlayer();
-                    assert player != null;
-                    ItemStack stack = player.getMainHandStack();
-                    ItemStack head = player.getEquippedStack(EquipmentSlot.HEAD);
-                    player.equipStack(EquipmentSlot.HEAD, stack);
-                    player.getInventory().setStack(player.getInventory().selectedSlot, head);
-                    player.currentScreenHandler.syncState();
-                    return 1;
-                }));
     }
 }

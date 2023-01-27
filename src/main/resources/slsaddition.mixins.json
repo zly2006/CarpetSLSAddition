@@ -7,6 +7,7 @@
     "AccessorPlayerAbilities",
     "MixinAbstractSignBlock",
     "MixinBlock",
+    "MixinFakePlayer",
     "MixinFallingBlockEntity",
     "MixinItem",
     "MixinItemEntity",

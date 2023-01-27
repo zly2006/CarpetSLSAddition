@@ -4,5 +4,6 @@
   "carpet.rule.maxVillagersInABlock.desc": "The maximum number of villagers that can be in a block, set to -1 to disable.",
   "carpet.rule.creativeNoInfinitePickup.desc": "If my inventory is full, don't pick up items in creative mode.",
   "carpet.rule.autoUrl.desc": "Automatically add click event to URLs in chat.",
-  "carpet.rule.noBatSpawning.desc": "Prevents bats from spawning."
+  "carpet.rule.noBatSpawning.desc": "Prevents bats from spawning.",
+  "carpet.rule.offlineFakePlayers.desc": "Using offline uuid and skin so that fake players wont cause extra network traffic."
 }

@@ -1,11 +1,9 @@
 package com.github.zly2006.carpetslsaddition;
 
-import carpet.CarpetSettings;
-import carpet.api.settings.CarpetRule;
 import carpet.api.settings.Rule;
 import carpet.api.settings.RuleCategory;
 
-import static com.github.zly2006.carpetslsaddition.ServerMain.*;
+import static com.github.zly2006.carpetslsaddition.ServerMain.CARPET_ID;
 
 public class SLSCarpetSettings {
     @Rule(categories = {CARPET_ID})
@@ -20,4 +18,6 @@ public class SLSCarpetSettings {
     public static boolean autoUrl = false;
     @Rule(categories = {CARPET_ID})
     public static boolean noBatSpawning = false;
+    @Rule(categories = {CARPET_ID})
+    public static boolean offlineFakePlayers = false;
 }

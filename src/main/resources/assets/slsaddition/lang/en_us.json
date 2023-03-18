@@ -1,9 +1,18 @@
 {
+  "carpet.category.pca": "PCA Adaption",
+  "carpet.category.needClient":"Need client support",
+  "carpet.category.protocol":"Protocol",
   "carpet.rule.obtainableReinforcedDeepSlate.desc": "When an anvil falls on 64 dropped deepslates, they will be turned in a reinforced deepslate instead of disappearing.",
-  "carpet.rule.skipTicksForJoblessVillager.desc": "Villagers will skip ticks if they have no job.",
+  "carpet.rule.skipTicksForJoblessVillager.desc": "For jobless/nitwit villagers, after performing a set number of tick operations, skip the 1 tick operation.",
   "carpet.rule.maxVillagersInABlock.desc": "The maximum number of villagers that can be in a block, set to -1 to disable.",
   "carpet.rule.creativeNoInfinitePickup.desc": "If my inventory is full, don't pick up items in creative mode.",
   "carpet.rule.autoUrl.desc": "Automatically add click event to URLs in chat.",
   "carpet.rule.noBatSpawning.desc": "Prevents bats from spawning.",
-  "carpet.rule.offlineFakePlayers.desc": "Using offline uuid and skin so that fake players wont cause extra network traffic."
+  "carpet.rule.offlineFakePlayers.desc": "Using offline uuid and skin so that fake players wont cause extra network traffic.",
+  "carpet.rule.pcaSyncProtocol.desc": "Using PCA protocol to support sync entity and blockEntity from server",
+  "carpet.rule.pcaSyncPlayerEntity.desc": "Which player entity can be sync",
+  "carpet.rule.emptyShulkerBoxStack.desc": "Empty shulker boxes stack",
+  "carpet.rule.useDyeOnShulkerBox.desc": "Dyes can be used on shulker boxes, empty potion will clean color",
+  "carpet.rule.xaeroWorldName.desc": "set xaero world name to sync word id to xaerominimap, \"#none\" is disable.",
+  "carpet.rule.playerSit.desc": "Player can sit down when fast sneak 3 times."
 }

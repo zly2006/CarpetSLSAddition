@@ -1,4 +1,4 @@
-package com.github.zly2006.carpetslsaddition.mixin;
+package com.github.zly2006.carpetslsaddition.mixin.entity;
 
 import com.github.zly2006.carpetslsaddition.SLSCarpetSettings;
 import net.minecraft.entity.EntityType;
@@ -37,7 +37,7 @@ public abstract class MixinVillagerEntity extends MerchantEntity {
                 tickCount--;
             }
             else {
-                tickCount = SLSCarpetSettings.skipTicksForJoblessVillager + 1;
+                tickCount = SLSCarpetSettings.skipTicksForJoblessVillager;
                 ci.cancel();
 
                 if (this.getHeadRollingTimeLeft() > 0) {

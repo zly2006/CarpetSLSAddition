@@ -1,4 +1,4 @@
-package com.github.zly2006.carpetslsaddition.mixin;
+package com.github.zly2006.carpetslsaddition.mixin.block;
 
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;

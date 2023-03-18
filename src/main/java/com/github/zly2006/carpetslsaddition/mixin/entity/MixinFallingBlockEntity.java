@@ -1,4 +1,4 @@
-package com.github.zly2006.carpetslsaddition.mixin;
+package com.github.zly2006.carpetslsaddition.mixin.entity;
 
 import net.minecraft.entity.FallingBlockEntity;
 import net.minecraft.entity.damage.DamageSource;

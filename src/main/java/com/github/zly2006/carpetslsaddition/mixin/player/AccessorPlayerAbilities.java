@@ -1,4 +1,4 @@
-package com.github.zly2006.carpetslsaddition.mixin;
+package com.github.zly2006.carpetslsaddition.mixin.player;
 
 import net.minecraft.entity.player.PlayerAbilities;
 import org.spongepowered.asm.mixin.Mixin;

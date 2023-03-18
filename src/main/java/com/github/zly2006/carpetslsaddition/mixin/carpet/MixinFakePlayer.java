@@ -1,4 +1,4 @@
-package com.github.zly2006.carpetslsaddition.mixin;
+package com.github.zly2006.carpetslsaddition.mixin.carpet;
 
 import carpet.patches.EntityPlayerMPFake;
 import com.github.zly2006.carpetslsaddition.SLSCarpetSettings;
@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 import java.util.Optional;
 import java.util.UUID;
 
-@Mixin(value = EntityPlayerMPFake.class)
+@Mixin(value = EntityPlayerMPFake.class, remap = false)
 public class MixinFakePlayer {
     @Redirect(method = "createFake", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/UserCache;findByName(Ljava/lang/String;)Ljava/util/Optional;"))
     private static Optional<GameProfile> onCreate(UserCache instance, String name) {

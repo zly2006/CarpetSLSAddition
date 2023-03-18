@@ -1,9 +1,18 @@
 {
+  "carpet.category.pca": "PCA适配",
+  "carpet.category.needClient": "需要客户端支持",
+  "carpet.category.protocol": "协议",
   "carpet.rule.maxVillagersInABlock.desc": "每个方块中最大村民数量，设置-1为无限制",
-  "carpet.rule.obtainableReinforcedDeepSlate.desc": "当铁砧在64个深板岩的凋落物上时，可以获得强化深板岩",
-  "carpet.rule.skipTicksForJoblessVillager.desc": "村民没有工作时，跳过村民的tick",
+  "carpet.rule.obtainableReinforcedDeepSlate.desc": "当铁砧在64个深板岩的掉落物上时，可以获得强化深板岩",
+  "carpet.rule.skipTicksForJoblessVillager.desc": "对于无业/傻子村民，执行设定数量的tick运算后，跳过1tick的运算",
   "carpet.rule.creativeNoInfinitePickup.desc": "创造模式下，玩家不能无限制地拾取物品",
   "carpet.rule.autoUrl.desc": "自动识别URL并添加点击事件",
-  "carpet.rule.noBatSpawning.desc": "禁止蝙蝠生成",
-  "carpet.rule.offlineFakePlayers.desc": "假玩家使用离线皮肤和uuid"
+  "carpet.rule.noBatSpawning.desc": "禁止任何区域蝙蝠生成",
+  "carpet.rule.offlineFakePlayers.desc": "由Carpet生成的假玩家，将使用离线皮肤和UUID",
+  "carpet.rule.pcaSyncProtocol.desc": "借助PCA同步协议，支持同步 BlockEntity 和 Entity 到客户端",
+  "carpet.rule.pcaSyncPlayerEntity.desc": "决定哪些玩家的数据将会被同步",
+  "carpet.rule.emptyShulkerBoxStack.desc": "空潜影盒可堆叠，但是不会改变容器中潜影盒的堆叠行为",
+  "carpet.rule.useDyeOnShulkerBox.desc": "可以使用染料直接对地上的潜影盒染色，用水瓶可以洗掉潜影盒的颜色",
+  "carpet.rule.xaeroWorldName.desc": "设置 Xaero 世界名来同步世界 ID,\"#none\" 表示不同步",
+  "carpet.rule.playerSit.desc": "在快速潜行 3 次后玩家可以坐下"
 }

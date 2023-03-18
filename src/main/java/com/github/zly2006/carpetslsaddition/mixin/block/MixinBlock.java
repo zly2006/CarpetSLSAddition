@@ -1,4 +1,4 @@
-package com.github.zly2006.carpetslsaddition.mixin;
+package com.github.zly2006.carpetslsaddition.mixin.block;
 
 import carpet.patches.EntityPlayerMPFake;
 import com.github.zly2006.carpetslsaddition.PlayerAccess;

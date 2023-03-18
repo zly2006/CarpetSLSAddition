@@ -2,7 +2,6 @@ package com.github.zly2006.carpetslsaddition;
 
 import carpet.CarpetExtension;
 import carpet.CarpetServer;
-import carpet.api.settings.SettingsManager;
 import com.google.common.collect.Maps;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
@@ -24,6 +23,8 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DefaultedList;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -33,11 +34,17 @@ import java.util.Map;
 public class ServerMain implements ModInitializer, CarpetExtension {
     public static final String MOD_ID = "carpet-sls-addition";
     public static final String MOD_NAME = "Carpet SLS Addition";
-    public static final String CARPET_ID = "slsaddition";
-    static final Gson GSON = new Gson();
     public static final Version MOD_VERSION = FabricLoader.getInstance().getModContainer(MOD_ID).get().getMetadata().getVersion();
+
+    public static final String CARPET_ID = "SLS";
+
+    public static final Logger LOGGER = LogManager.getLogger(MOD_ID);
+    static final Gson GSON = new Gson();
+
     public static ServerMain INSTANCE;
-    MinecraftServer server;
+    public static MinecraftServer server;
+
+    public static final boolean tisCarpetLoaded = FabricLoader.getInstance().isModLoaded("carpet-tis-addition");
     public static final String ITEM_NAME = "item_name";
     public static final String OBSIDIAN_PICKAXE = "obsidian_pickaxe";
 
@@ -49,7 +56,7 @@ public class ServerMain implements ModInitializer, CarpetExtension {
 
     @Override
     public void onServerLoaded(MinecraftServer server) {
-        this.server = server;
+        ServerMain.server = server;
         CarpetServer.settingsManager.parseSettingsClass(SLSCarpetSettings.class);
         ((SettingsManagerAccessor) CarpetServer.settingsManager).loadSettings();
         if (false) {
@@ -107,5 +114,9 @@ public class ServerMain implements ModInitializer, CarpetExtension {
                     player.currentScreenHandler.syncState();
                     return 1;
                 }));
+    }
+
+    public static Identifier createId(String path) {
+        return new Identifier(MOD_ID, path);
     }
 }

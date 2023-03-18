@@ -29,7 +29,7 @@ public abstract class MixinBeehiveBlockEntity extends BlockEntity {
     }
 
     @Inject(method = "tickBees", at = @At(value = "INVOKE", target = "Ljava/util/Iterator;remove()V", shift = At.Shift.AFTER))
-    private static void postTickBees(World world, BlockPos pos, BlockState state, List<BeehiveBlockEntity.Bee> bees, BlockPos flowerPos, CallbackInfo ci) {
+    private static void postTickBees(World world, BlockPos pos, BlockState state, List<Object> bees, BlockPos flowerPos, CallbackInfo ci) {
         if (SLSCarpetSettings.pcaSyncProtocol && PcaSyncProtocol.syncBlockEntityToClient(Objects.requireNonNull(world.getBlockEntity(pos)))) {
             ServerMain.LOGGER.debug("update BeehiveBlockEntity: {}", pos);
         }

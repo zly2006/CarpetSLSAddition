@@ -15,6 +15,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.ShapedRecipe;
+import net.minecraft.recipe.book.CraftingRecipeCategory;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
@@ -69,7 +70,7 @@ public class ServerMain implements ModInitializer, CarpetExtension {
             ingredients.set(2, Ingredient.ofItems(Items.OBSIDIAN));
             ingredients.set(4, Ingredient.ofItems(Items.STICK));
             ingredients.set(7, Ingredient.ofItems(Items.STICK));
-            server.getRecipeManager().setRecipes(List.of(new ShapedRecipe(new Identifier(MOD_ID, "recipe.obsidian_pickaxe"), MOD_ID, 3, 3, ingredients, stack)));
+            server.getRecipeManager().setRecipes(List.of(new ShapedRecipe(new Identifier(MOD_ID, "recipe.obsidian_pickaxe"), MOD_ID, CraftingRecipeCategory.EQUIPMENT, 3, 3, ingredients, stack)));
         }
     }
 

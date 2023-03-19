@@ -3,8 +3,8 @@
   "id": "carpet-sls-addition",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Carpet SLS Addition",
+  "description": "",
   "authors": [
     "zly2006"
   ],
@@ -19,6 +19,7 @@
       "com.github.zly2006.carpetslsaddition.ServerMain"
     ]
   },
+  "accessWidener": "slsa.accesswidener",
   "mixins": [
     "slsaddition.mixins.json"
   ],

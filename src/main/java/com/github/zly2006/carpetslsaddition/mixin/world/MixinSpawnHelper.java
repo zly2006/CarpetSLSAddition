@@ -1,4 +1,4 @@
-package com.github.zly2006.carpetslsaddition.mixin;
+package com.github.zly2006.carpetslsaddition.mixin.world;
 
 import com.github.zly2006.carpetslsaddition.SLSCarpetSettings;
 import net.minecraft.entity.EntityType;

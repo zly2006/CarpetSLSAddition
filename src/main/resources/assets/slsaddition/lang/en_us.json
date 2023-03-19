@@ -2,6 +2,24 @@
   "carpet.category.pca": "PCA Adaption",
   "carpet.category.needClient":"Need client support",
   "carpet.category.protocol":"Protocol",
+  
+
+  "carpet.rule.obtainableReinforcedDeepSlate.name": "Obtainable reinforced deep slate",
+  "carpet.rule.skipTicksForJoblessVillager.name": "Skip ticks for jobless villager",
+  "carpet.rule.maxVillagersInABlock.name": "Max villagers in a block",
+  "carpet.rule.creativeNoInfinitePickup.name": "Creative mode cannot infinite pickup",
+  "carpet.rule.autoUrl.name": "Auto add click event for url",
+  "carpet.rule.noBatSpawning.name": "No bat spawning",
+  "carpet.rule.offlineFakePlayers.name": "Use offline mode for fake players",
+  "carpet.rule.pcaSyncProtocol.name": "Enable PCA Sync Protocol",
+  "carpet.rule.pcaSyncPlayerEntity.name": "Set PCA Sync Protocol's entity scope",
+  "carpet.rule.emptyShulkerBoxStack.name": "Empty shulker boxes can be stacked",
+  "carpet.rule.useDyeOnShulkerBox.name": "Shulker box blocks can be dyed",
+  "carpet.rule.xaeroWorldName.name": "Xaero world name",
+  "carpet.rule.playerSit.name": "Player can sit",
+  "carpet.rule.canUseHatCommand.name": "Enable hat command",
+  "carpet.rule.canUseSitCommand.name": "Enable sit command",
+  
   "carpet.rule.obtainableReinforcedDeepSlate.desc": "When an anvil falls on 64 dropped deepslates, they will be turned in a reinforced deepslate instead of disappearing.",
   "carpet.rule.skipTicksForJoblessVillager.desc": "For jobless/nitwit villagers, after performing a set number of tick operations, skip the 1 tick operation.",
   "carpet.rule.maxVillagersInABlock.desc": "The maximum number of villagers that can be in a block, set to -1 to disable.",
@@ -14,5 +32,19 @@
   "carpet.rule.emptyShulkerBoxStack.desc": "Empty shulker boxes stack",
   "carpet.rule.useDyeOnShulkerBox.desc": "Dyes can be used on shulker boxes, empty potion will clean color",
   "carpet.rule.xaeroWorldName.desc": "set xaero world name to sync word id to xaerominimap, \"#none\" is disable.",
-  "carpet.rule.playerSit.desc": "Player can sit down when fast sneak 3 times."
+  "carpet.rule.playerSit.desc": "Player can sit down when fast sneak 3 times.",
+  "carpet.rule.canUseHatCommand.desc": "Allows all players to use the /hat command to place their main hand items in the helmet slot",
+  "carpet.rule.canUseSitCommand.desc": "Allows all players to use the /sit command to sit down",
+
+  "carpet.rule.autoUrl.extra.0": "The URL sent by players to be directly clicked and redirected by other players",
+  "carpet.rule.skipTicksForJoblessVillager.extra.0": "Set to 0 to maintain the vanilla behavior",
+  "carpet.rule.skipTicksForJoblessVillager.extra.1": "Set to a number greater than 0, the value will be +1 based on the setting",
+  "carpet.rule.skipTicksForJoblessVillager.extra.2": "To prevents villagers from getting completely stuck when set to 1",
+  "carpet.rule.pcaSyncPlayerEntity.extra.0": "NOBODY: nobody will be sync",
+  "carpet.rule.pcaSyncPlayerEntity.extra.1": "BOT: carpet bot will be sync",
+  "carpet.rule.pcaSyncPlayerEntity.extra.2": "OPS: carpet bot will be sync, and op can sync everyone's player entity data.",
+  "carpet.rule.pcaSyncPlayerEntity.extra.3": "OPS_AND_SELF: carpet bot and self data will be sync, and op can sync everyone's player entity data.",
+  "carpet.rule.pcaSyncPlayerEntity.extra.4": "EVERYONE: everyone's player entity will be sync",
+  "carpet.rule.emptyShulkerBoxStack.extra.0": "Empty shulker boxes can stack in a player's inventory or hand",
+  "carpet.rule.emptyShulkerBoxStack.extra.1": "Empty shulker boxes will not stack in other inventories, such as chests or hoppers"
 }

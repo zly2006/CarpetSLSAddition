@@ -1,6 +1,5 @@
 package com.github.zly2006.carpetslsaddition.mixin.block;
 
-import carpet.patches.EntityPlayerMPFake;
 import com.github.zly2006.carpetslsaddition.PlayerAccess;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

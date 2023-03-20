@@ -110,43 +110,34 @@ public class ServerMain implements ModInitializer, CarpetExtension {
     public void registerCommands(CommandDispatcher<ServerCommandSource> dispatcher, CommandRegistryAccess commandBuildContext) {
         dispatcher.register(CommandManager.literal("hat")
                 .requires(ServerCommandSource::isExecutedByPlayer)
+                .requires((commandSource) -> SLSCarpetSettings.canUseHatCommand)
                 .executes(context -> {
-                    if(SLSCarpetSettings.canUseHatCommand){
-                        ServerPlayerEntity player = context.getSource().getPlayer();
-                        assert player != null;
-                        ItemStack stack = player.getMainHandStack();
-                        ItemStack head = player.getEquippedStack(EquipmentSlot.HEAD);
-                        player.equipStack(EquipmentSlot.HEAD, stack);
-                        player.getInventory().setStack(player.getInventory().selectedSlot, head);
-                        player.currentScreenHandler.syncState();
-                        return 1;
-                    }
-                    else {
-                        context.getSource().sendMessage(Text.literal("服务器尚未启用本指令！").setStyle(Style.EMPTY.withColor(Formatting.RED)));
-                        return 0;
-                    }
+                    ServerPlayerEntity player = context.getSource().getPlayer();
+                    assert player != null;
+                    ItemStack stack = player.getMainHandStack();
+                    ItemStack head = player.getEquippedStack(EquipmentSlot.HEAD);
+                    player.equipStack(EquipmentSlot.HEAD, stack);
+                    player.getInventory().setStack(player.getInventory().selectedSlot, head);
+                    player.currentScreenHandler.syncState();
+
+                    return 1;
                 }));
 
         dispatcher.register(CommandManager.literal("sit")
                 .requires(ServerCommandSource::isExecutedByPlayer)
+                .requires((commandSource) -> SLSCarpetSettings.canUseSitCommand)
                 .executes(context -> {
-                    if(SLSCarpetSettings.canUseSitCommand){
-                        ServerPlayerEntity player = context.getSource().getPlayer();
-                        assert player != null;
-                        World world = player.getWorld();
+                    ServerPlayerEntity player = context.getSource().getPlayer();
+                    assert player != null;
+                    World world = player.getWorld();
 
-                        ArmorStandEntity armorStandEntity = new ArmorStandEntity(world, player.getX(), player.getY() - 0.16, player.getZ());
-                        ((SitEntity) armorStandEntity).setSitEntity(true);
-                        world.spawnEntity(armorStandEntity);
-                        player.setSneaking(false);
-                        player.startRiding(armorStandEntity);
+                    ArmorStandEntity armorStandEntity = new ArmorStandEntity(world, player.getX(), player.getY() - 0.16, player.getZ());
+                    ((SitEntity) armorStandEntity).setSitEntity(true);
+                    world.spawnEntity(armorStandEntity);
+                    player.setSneaking(false);
+                    player.startRiding(armorStandEntity);
 
-                        return 1;
-                    }
-                    else {
-                        context.getSource().sendMessage(Text.literal("服务器尚未启用本指令！").setStyle(Style.EMPTY.withColor(Formatting.RED)));
-                        return 0;
-                    }
+                    return 1;
                 })
         );
     }

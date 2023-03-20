@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 import java.util.Optional;
 import java.util.UUID;
 
-@Mixin(value = EntityPlayerMPFake.class, remap = false)
+@Mixin(value = EntityPlayerMPFake.class)
 public class MixinFakePlayer {
     @Redirect(method = "createFake", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/UserCache;findByName(Ljava/lang/String;)Ljava/util/Optional;"))
     private static Optional<GameProfile> onCreate(UserCache instance, String name) {

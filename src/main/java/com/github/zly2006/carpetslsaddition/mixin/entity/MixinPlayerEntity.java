@@ -7,9 +7,6 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.GameMode;
-import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -29,6 +26,7 @@ public abstract class MixinPlayerEntity implements PlayerAccess {
         return compound != null && compound.contains(ITEM_NAME) && compound.getString(ITEM_NAME).equals(OBSIDIAN_PICKAXE);
     }
 
+
     @Inject(method = "getBlockBreakingSpeed", at = @At("HEAD"), cancellable = true)
     private void onGetBlockBreakingSpeed(BlockState block, CallbackInfoReturnable<Float> cir) {
         if (holdingObsidianPickaxe() && block.isOf(Blocks.OBSIDIAN)) {
@@ -36,11 +34,11 @@ public abstract class MixinPlayerEntity implements PlayerAccess {
         }
     }
 
+
     @Inject(method = "canHarvest", at = @At("HEAD"), cancellable = true)
     private void onGetCanMine(BlockState state, CallbackInfoReturnable<Boolean> cir) {
         if (holdingObsidianPickaxe() && state.isOf(Blocks.OBSIDIAN)) {
             cir.setReturnValue(true);
         }
     }
-
 }

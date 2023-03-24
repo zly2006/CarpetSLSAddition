@@ -31,6 +31,7 @@ import net.minecraft.world.World;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.MutablePair;
 import org.apache.commons.lang3.tuple.Pair;
+import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -45,15 +46,15 @@ public class PcaSyncProtocol {
     public static final ReentrantLock lock = new ReentrantLock(true);
     public static final ReentrantLock pairLock = new ReentrantLock(true);
     // 发送包
-    private static final Identifier ENABLE_PCA_SYNC_PROTOCOL = ServerMain.createId("enable_pca_sync_protocol");
-    private static final Identifier DISABLE_PCA_SYNC_PROTOCOL = ServerMain.createId("disable_pca_sync_protocol");
-    private static final Identifier UPDATE_ENTITY = ServerMain.createId("update_entity");
-    private static final Identifier UPDATE_BLOCK_ENTITY = ServerMain.createId("update_block_entity");
+    private static final Identifier ENABLE_PCA_SYNC_PROTOCOL = createId("enable_pca_sync_protocol");
+    private static final Identifier DISABLE_PCA_SYNC_PROTOCOL = createId("disable_pca_sync_protocol");
+    private static final Identifier UPDATE_ENTITY = createId("update_entity");
+    private static final Identifier UPDATE_BLOCK_ENTITY = createId("update_block_entity");
     // 响应包
-    private static final Identifier SYNC_BLOCK_ENTITY = ServerMain.createId("sync_block_entity");
-    private static final Identifier SYNC_ENTITY = ServerMain.createId("sync_entity");
-    private static final Identifier CANCEL_SYNC_BLOCK_ENTITY = ServerMain.createId("cancel_sync_block_entity");
-    private static final Identifier CANCEL_SYNC_ENTITY = ServerMain.createId("cancel_sync_entity");
+    private static final Identifier SYNC_BLOCK_ENTITY = createId("sync_block_entity");
+    private static final Identifier SYNC_ENTITY = createId("sync_entity");
+    private static final Identifier CANCEL_SYNC_BLOCK_ENTITY = createId("cancel_sync_block_entity");
+    private static final Identifier CANCEL_SYNC_ENTITY = createId("cancel_sync_entity");
     private static final Map<ServerPlayerEntity, Pair<Identifier, BlockPos>> playerWatchBlockPos = new HashMap<>();
     private static final Map<ServerPlayerEntity, Pair<Identifier, Entity>> playerWatchEntity = new HashMap<>();
     private static final Map<Pair<Identifier, BlockPos>, Set<ServerPlayerEntity>> blockPosWatchPlayerSet = new HashMap<>();
@@ -414,5 +415,10 @@ public class PcaSyncProtocol {
 
     private static CarpetRule<?> getCarpetRule(String rule){
         return CarpetServer.settingsManager.getCarpetRule(rule);
+    }
+
+    @Contract(value = "_ -> new", pure = true)
+    private static @NotNull Identifier createId(String name) {
+        return new Identifier("pca", name);
     }
 }

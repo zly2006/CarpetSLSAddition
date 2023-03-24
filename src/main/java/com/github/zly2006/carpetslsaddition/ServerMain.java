@@ -142,8 +142,4 @@ public class ServerMain implements ModInitializer, CarpetExtension {
                 })
         );
     }
-
-    public static Identifier createId(String path) {
-        return new Identifier(MOD_ID, path);
-    }
 }

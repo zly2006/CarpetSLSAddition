@@ -7,6 +7,7 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.stat.Stat;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -18,6 +19,8 @@ import static com.github.zly2006.carpetslsaddition.ServerMain.*;
 @Mixin(PlayerEntity.class)
 public abstract class MixinPlayerEntity implements PlayerAccess {
     @Shadow public abstract ItemStack getEquippedStack(EquipmentSlot slot);
+
+    @Shadow public abstract void resetStat(Stat<?> stat);
 
     @Override
     public boolean holdingObsidianPickaxe() {

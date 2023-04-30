@@ -2,6 +2,7 @@ package com.github.zly2006.carpetslsaddition;
 
 import carpet.CarpetExtension;
 import carpet.CarpetServer;
+import com.github.zly2006.carpetslsaddition.network.pca.PcaSyncProtocol;
 import com.github.zly2006.carpetslsaddition.util.SitEntity;
 import com.google.common.collect.Maps;
 import com.google.gson.Gson;
@@ -23,7 +24,6 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
@@ -82,6 +82,7 @@ public class ServerMain implements ModInitializer, CarpetExtension {
     @Override
     public Map<String, String> canHasTranslations(String lang) {
         Map<String, String> translation = Maps.newHashMap();
+        PcaSyncProtocol.init();
         String jsonFile;
         try {
             try (InputStream stream = ServerMain.class.getResourceAsStream("/assets/slsaddition/lang/%s.json".formatted(lang))) {
@@ -140,9 +141,5 @@ public class ServerMain implements ModInitializer, CarpetExtension {
                     return 1;
                 })
         );
-    }
-
-    public static Identifier createId(String path) {
-        return new Identifier(MOD_ID, path);
     }
 }

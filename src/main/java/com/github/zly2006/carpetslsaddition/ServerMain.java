@@ -130,9 +130,14 @@ public class ServerMain implements ModInitializer, CarpetExtension {
                 .executes(context -> {
                     ServerPlayerEntity player = context.getSource().getPlayer();
                     assert player != null;
+
+                    if (player.getVehicle() != null) {  // 防止重复的坐下行为
+                        return 1;
+                    }
+
                     World world = player.getWorld();
 
-                    ArmorStandEntity armorStandEntity = new ArmorStandEntity(world, player.getX(), player.getY() - 0.16, player.getZ());
+                    ArmorStandEntity armorStandEntity = new ArmorStandEntity(world, player.getX(), player.getY(), player.getZ());
                     ((SitEntity) armorStandEntity).setSitEntity(true);
                     world.spawnEntity(armorStandEntity);
                     player.setSneaking(false);

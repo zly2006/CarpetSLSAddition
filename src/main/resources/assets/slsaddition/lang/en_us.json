@@ -19,6 +19,7 @@
   "carpet.rule.playerSit.name": "Player can sit",
   "carpet.rule.canUseHatCommand.name": "Enable hat command",
   "carpet.rule.canUseSitCommand.name": "Enable sit command",
+  "carpet.rule.maxUpdateQueueSize.name": "Maximum allowed capacity of update queue",
   
   "carpet.rule.obtainableReinforcedDeepSlate.desc": "When an anvil falls on 64 dropped deepslates, they will be turned in a reinforced deepslate instead of disappearing.",
   "carpet.rule.skipTicksForJoblessVillager.desc": "For jobless/nitwit villagers, after performing a set number of tick operations, skip the 1 tick operation.",
@@ -35,11 +36,14 @@
   "carpet.rule.playerSit.desc": "Player can sit down when fast sneak 3 times.",
   "carpet.rule.canUseHatCommand.desc": "Allows all players to use the /hat command to place their main hand items in the helmet slot",
   "carpet.rule.canUseSitCommand.desc": "Allows all players to use the /sit command to sit down",
+  "carpet.rule.maxUpdateQueueSize.desc": "Set the maximum allowed length of the update queue",
 
   "carpet.rule.autoUrl.extra.0": "The URL sent by players to be directly clicked and redirected by other players",
   "carpet.rule.skipTicksForJoblessVillager.extra.0": "Set to 0 to maintain the vanilla behavior",
   "carpet.rule.skipTicksForJoblessVillager.extra.1": "Set to a number greater than 0, the value will be +1 based on the setting",
   "carpet.rule.skipTicksForJoblessVillager.extra.2": "To prevents villagers from getting completely stuck when set to 1",
+  "carpet.rule.maxUpdateQueueSize.extra.0": "If set to a value not greater than 0, turn off this function and run according to Vanilla",
+  "carpet.rule.maxUpdateQueueSize.extra.1": "Otherwise, when the number of single updates exceeds the set value, an OutOfMemoryError will be thrown to generate update suppression",
   "carpet.rule.pcaSyncPlayerEntity.extra.0": "NOBODY: nobody will be sync",
   "carpet.rule.pcaSyncPlayerEntity.extra.1": "BOT: carpet bot will be sync",
   "carpet.rule.pcaSyncPlayerEntity.extra.2": "OPS: carpet bot will be sync, and op can sync everyone's player entity data.",

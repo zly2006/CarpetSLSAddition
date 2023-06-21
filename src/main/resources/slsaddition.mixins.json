@@ -4,7 +4,6 @@
   "package": "com.github.zly2006.carpetslsaddition.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "block.MixinAbstractSignBlock",
     "block.MixinBlock",
     "carpet.MixinFakePlayer",
     "carpet.MixinSettingsManager",
@@ -34,6 +33,7 @@
     "screen.MixinScreenHandler",
     "screen.MixinSlot",
     "server.MixinPlayerManager",
+    "world.MixinChainRestrictedNeighborUpdater",
     "world.MixinSpawnHelper"
   ],
   "client": [

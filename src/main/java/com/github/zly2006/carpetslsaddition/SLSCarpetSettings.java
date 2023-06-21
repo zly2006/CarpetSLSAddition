@@ -37,6 +37,9 @@ public class SLSCarpetSettings {
     @Rule(categories = {CARPET_ID, RuleCategory.FEATURE})
     public static boolean canUseSitCommand = false;
 
+    @Rule(categories = {CARPET_ID, RuleCategory.CREATIVE})
+    public static int maxUpdateQueueSize = -1;
+
     @Rule(categories = {CARPET_ID, PCA, PROTOCOL})
     public static boolean pcaSyncProtocol = false;
 

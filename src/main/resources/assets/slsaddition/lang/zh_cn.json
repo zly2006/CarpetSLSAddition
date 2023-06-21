@@ -19,6 +19,7 @@
   "carpet.rule.playerSit.name": "玩家可坐下",
   "carpet.rule.canUseHatCommand.name": "启用戴帽指令",
   "carpet.rule.canUseSitCommand.name": "启用坐下指令",
+  "carpet.rule.maxUpdateQueueSize.name": "最大更新队列容量",
 
   "carpet.rule.maxVillagersInABlock.desc": "每个方块中最大村民数量，设置-1为无限制",
   "carpet.rule.obtainableReinforcedDeepSlate.desc": "当铁砧在64个深板岩的掉落物上时，可以获得强化深板岩",
@@ -35,11 +36,14 @@
   "carpet.rule.playerSit.desc": "在快速潜行 3 次后玩家可以坐下",
   "carpet.rule.canUseHatCommand.desc": "可让所有玩家使用/hat指令，将手中的物品置于头盔位",
   "carpet.rule.canUseSitCommand.desc": "可让所有玩家使用/sit指令，以在原地坐下",
+  "carpet.rule.maxUpdateQueueSize.desc": "设定最大允许的更新队列长度",
 
   "carpet.rule.autoUrl.extra.0": "使玩家发出的URL可以被其他玩家直接点击跳转",
   "carpet.rule.skipTicksForJoblessVillager.extra.0": "设置为0则保持原版行为",
   "carpet.rule.skipTicksForJoblessVillager.extra.1": "设置为大于0的数，将在设置的基础上将该值+1",
   "carpet.rule.skipTicksForJoblessVillager.extra.2": "以此避免在设置为1的时候，村民完全卡死",
+  "carpet.rule.maxUpdateQueueSize.extra.0": "如果设定了不超过0的值，将关闭该功能，更新机制继续依照Vanilla运行",
+  "carpet.rule.maxUpdateQueueSize.extra.1": "否则，在单次更新数量超过设定最大容量后，服务器将抛出OutOfMemoryError，以达到快速更新抑制的效果",
   "carpet.rule.pcaSyncPlayerEntity.extra.0": "NOBODY：所有玩家数据都无法同步",
   "carpet.rule.pcaSyncPlayerEntity.extra.1": "BOT：地毯 mod 召唤出的 bot 的数据可以被同步",
   "carpet.rule.pcaSyncPlayerEntity.extra.2": "OPS：地毯 mod 召唤出的 bot 的数据可以被同步， op 可以同步所有玩家的数据",

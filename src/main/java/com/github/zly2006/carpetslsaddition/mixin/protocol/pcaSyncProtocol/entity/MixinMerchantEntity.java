@@ -33,7 +33,7 @@ public abstract class MixinMerchantEntity extends PassiveEntity implements Npc, 
 
     @Inject(method = "<init>(Lnet/minecraft/entity/EntityType;Lnet/minecraft/world/World;)V", at = @At(value = "RETURN"))
     private void addInventoryListener(EntityType<? extends MerchantEntity> entityType, World world, CallbackInfo info) {
-        if (this.world.isClient()) {
+        if (this.getWorld().isClient()) {
             return;
         }
         this.inventory.addListener(this);

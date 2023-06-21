@@ -164,7 +164,7 @@ public class PcaSyncProtocol {
             return;
         }
         BlockPos pos = buf.readBlockPos();
-        ServerWorld world = player.getWorld();
+        ServerWorld world = player.getServerWorld();
         BlockState blockState = world.getBlockState(pos);
         clearPlayerWatchData(player);
         ServerMain.LOGGER.debug("{} watch blockpos {}: {}", player.getName().getString(), pos, blockState);
@@ -219,7 +219,7 @@ public class PcaSyncProtocol {
             return;
         }
         int entityId = buf.readInt();
-        ServerWorld world = player.getWorld();
+        ServerWorld world = player.getServerWorld();
         Entity entity = world.getEntityById(entityId);
         if (entity == null) {
             ServerMain.LOGGER.debug("Can't find entity {}.", entityId);

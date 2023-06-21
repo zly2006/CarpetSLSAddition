@@ -131,7 +131,7 @@ public class ServerMain implements ModInitializer, CarpetExtension {
                     ServerPlayerEntity player = context.getSource().getPlayer();
                     assert player != null;
 
-                    if (player.getVehicle() != null) {  // 防止重复的坐下行为
+                    if (player.getVehicle() != null || !player.isOnGround()) {  // 防止错误的坐下行为
                         return 1;
                     }
 

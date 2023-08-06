@@ -20,6 +20,19 @@ repositories {
 	maven {
 		url 'https://www.cursemaven.com'
 	}
+	maven {
+		url = "https://maven.fabricmc.net/"
+	}
+	maven {
+		url = "https://oss.sonatype.org/content/repositories/snapshots"
+	}
+	maven {
+		name = "Modrinth"
+		url = "https://api.modrinth.com/maven"
+	}
+	maven {
+		url "https://maven.shedaniel.me"
+	}
 }
 
 dependencies {
@@ -27,9 +40,14 @@ dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+	// luck perm
+	modRuntimeOnly "maven.modrinth:luckperms:v5.4.83-fabric"
 
 	// carpet
 	modImplementation "carpet:fabric-carpet:${project.carpet_core_version}"
+
+	// Fabric Permission API
+	include(modImplementation('me.lucko:fabric-permissions-api:0.2-SNAPSHOT'))
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"

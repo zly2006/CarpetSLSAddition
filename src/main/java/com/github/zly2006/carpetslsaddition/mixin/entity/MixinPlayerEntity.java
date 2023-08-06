@@ -8,6 +8,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.stat.Stat;
+import net.minecraft.text.Text;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -22,11 +23,27 @@ public abstract class MixinPlayerEntity implements PlayerAccess {
 
     @Shadow public abstract void resetStat(Stat<?> stat);
 
+    @Shadow public abstract Text getName();
+
+    private Text displayName = null;
+
     @Override
     public boolean holdingObsidianPickaxe() {
         ItemStack itemStack = getEquippedStack(EquipmentSlot.MAINHAND);
         NbtCompound compound = itemStack.getSubNbt(MOD_ID);
         return compound != null && compound.contains(ITEM_NAME) && compound.getString(ITEM_NAME).equals(OBSIDIAN_PICKAXE);
+    }
+
+    @Override
+    public void setDisplayName(Text name) {
+        this.displayName = name;
+    }
+
+    @Inject(method = "getDisplayName", at = @At("HEAD"), cancellable = true)
+    public void injectGetDisplayName(CallbackInfoReturnable<Text> cir) {
+        if (this.displayName != null) {
+            cir.setReturnValue(displayName);
+        }
     }
 
 

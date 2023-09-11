@@ -4,14 +4,18 @@
   "package": "com.github.zly2006.carpetslsaddition.mixin",
   "compatibilityLevel": "JAVA_17",
   "server": [
+    "server.MixinMinecraftDedicatedServer"
   ],
   "client": [
   ],
   "mixins": [
+    "block.BlockPatternTestTransformInvoker",
     "block.MixinBlock",
+    "block.MixinRedstoneWireBlock",
     "carpet.MixinFakePlayer",
     "carpet.MixinSettingsManager",
     "entity.MixinArmorStandEntity",
+    "entity.MixinEnderDragonFight",
     "entity.MixinFallingBlockEntity",
     "entity.MixinItemEntity",
     "entity.MixinPlayerEntity",
@@ -38,8 +42,8 @@
     "screen.MixinSlot",
     "server.MixinMinecraftServer",
     "server.MixinPlayerManager",
-    "world.MixinChainRestrictedNeighborUpdater",
-    "world.MixinSpawnHelper"
+    "world.MixinSpawnHelper",
+    "world.MixinWorld"
   ],
   "injectors": {
     "defaultRequire": 1

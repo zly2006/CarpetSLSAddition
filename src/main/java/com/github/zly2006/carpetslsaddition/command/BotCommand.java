@@ -5,7 +5,7 @@ import carpet.fakes.ServerPlayerInterface;
 import carpet.helpers.EntityPlayerActionPack;
 import carpet.patches.EntityPlayerMPFake;
 import carpet.utils.Messenger;
-import com.github.zly2006.carpetslsaddition.PlayerAccess;
+import com.github.zly2006.carpetslsaddition.util.access.PlayerAccess;
 import com.github.zly2006.carpetslsaddition.ServerMain;
 import com.mojang.authlib.GameProfile;
 import com.mojang.brigadier.Command;

@@ -1,6 +1,6 @@
 package com.github.zly2006.carpetslsaddition.mixin.block;
 
-import com.github.zly2006.carpetslsaddition.PlayerAccess;
+import com.github.zly2006.carpetslsaddition.util.access.PlayerAccess;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;

@@ -20,6 +20,8 @@
   "carpet.rule.canUseHatCommand.name": "启用戴帽指令",
   "carpet.rule.canUseSitCommand.name": "启用坐下指令",
   "carpet.rule.maxUpdateQueueSize.name": "最大更新队列容量",
+  "carpet.rule.oldRedstoneConnectionLogic.name": "恢复红石线连接逻辑",
+  "carpet.rule.optimizedOnDragonRespawn.name": "龙战优化",
 
   "carpet.rule.maxVillagersInABlock.desc": "每个方块中最大村民数量，设置-1为无限制",
   "carpet.rule.obtainableReinforcedDeepSlate.desc": "当铁砧在64个深板岩的掉落物上时，可以获得强化深板岩",
@@ -37,6 +39,8 @@
   "carpet.rule.canUseHatCommand.desc": "可让所有玩家使用/hat指令，将手中的物品置于头盔位",
   "carpet.rule.canUseSitCommand.desc": "可让所有玩家使用/sit指令，以在原地坐下",
   "carpet.rule.maxUpdateQueueSize.desc": "设定最大允许的更新队列长度",
+  "carpet.rule.oldRedstoneConnectionLogic.desc": "使活板门上的红石线与其他红石线连接的逻辑恢复到1.19及之前版本的表现",
+  "carpet.rule.optimizedOnDragonRespawn.desc": "对重生末影龙的过程进行优化",
 
   "carpet.rule.autoUrl.extra.0": "使玩家发出的URL可以被其他玩家直接点击跳转",
   "carpet.rule.skipTicksForJoblessVillager.extra.0": "设置为0则保持原版行为",

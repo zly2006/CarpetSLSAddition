@@ -6,6 +6,7 @@ import com.github.zly2006.carpetslsaddition.command.BotCommand;
 import com.github.zly2006.carpetslsaddition.command.HatCommand;
 import com.github.zly2006.carpetslsaddition.command.SitCommand;
 import com.github.zly2006.carpetslsaddition.network.pca.PcaSyncProtocol;
+import com.github.zly2006.carpetslsaddition.util.access.SettingsManagerAccessor;
 import com.google.common.collect.Maps;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

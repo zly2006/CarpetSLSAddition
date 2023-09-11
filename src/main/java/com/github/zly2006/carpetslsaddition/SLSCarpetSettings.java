@@ -2,6 +2,7 @@ package com.github.zly2006.carpetslsaddition;
 
 import carpet.api.settings.Rule;
 import carpet.api.settings.RuleCategory;
+import net.minecraft.block.RedstoneBlock;
 
 import static com.github.zly2006.carpetslsaddition.ServerMain.CARPET_ID;
 
@@ -57,6 +58,12 @@ public class SLSCarpetSettings {
 
     @Rule(categories = {CARPET_ID, PCA, RuleCategory.FEATURE})
     public static boolean playerSit = false;
+
+    @Rule(categories = {CARPET_ID, RuleCategory.CREATIVE})
+    public static boolean oldRedstoneConnectionLogic = false;
+
+    @Rule(categories = {CARPET_ID, RuleCategory.OPTIMIZATION})
+    public static boolean optimizedOnDragonRespawn = false;
 
 
     public enum PCA_SYNC_PLAYER_ENTITY_OPTIONS {

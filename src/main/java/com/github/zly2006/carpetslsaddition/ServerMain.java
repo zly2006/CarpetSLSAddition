@@ -5,7 +5,6 @@ import carpet.CarpetServer;
 import com.github.zly2006.carpetslsaddition.command.BotCommand;
 import com.github.zly2006.carpetslsaddition.command.HatCommand;
 import com.github.zly2006.carpetslsaddition.command.SitCommand;
-import com.github.zly2006.carpetslsaddition.util.access.SettingsManagerAccessor;
 import com.google.common.collect.Maps;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -45,10 +44,14 @@ public class ServerMain implements ModInitializer, CarpetExtension {
     }
 
     @Override
+    public void onGameStarted() {
+        CarpetExtension.super.onGameStarted();
+        CarpetServer.settingsManager.parseSettingsClass(SLSCarpetSettings.class);
+    }
+
+    @Override
     public void onServerLoaded(MinecraftServer server) {
         ServerMain.server = server;
-        CarpetServer.settingsManager.parseSettingsClass(SLSCarpetSettings.class);
-        ((SettingsManagerAccessor) CarpetServer.settingsManager).loadSettings();
     }
 
     @Override

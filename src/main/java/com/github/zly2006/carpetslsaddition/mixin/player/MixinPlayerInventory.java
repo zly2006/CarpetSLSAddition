@@ -1,14 +1,12 @@
 package com.github.zly2006.carpetslsaddition.mixin.player;
 
 import com.github.zly2006.carpetslsaddition.SLSCarpetSettings;
-import com.github.zly2006.carpetslsaddition.util.ShulkerBoxItemUtil;
 import me.fallenbreath.conditionalmixin.api.annotation.Condition;
 import me.fallenbreath.conditionalmixin.api.annotation.Restriction;
 import net.minecraft.entity.player.PlayerAbilities;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.Nameable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -35,27 +33,5 @@ public abstract class MixinPlayerInventory implements Inventory, Nameable {
             return abilities;
         }
         return instance.getAbilities();
-    }
-
-    // 修改潜影盒拾取逻辑，使从地上捡起潜影盒时仍可堆叠
-    @Redirect(method = "canStackAddMore", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;isStackable()Z", ordinal = 0))
-    private boolean canStackAddMoreIsStackable(ItemStack itemStack) {
-        return ShulkerBoxItemUtil.isStackable(itemStack);
-    }
-
-    @Redirect(method = "canStackAddMore", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;getMaxCount()I", ordinal = 0))
-    private int canStackAddMoreGetMaxCount(ItemStack itemStack) {
-        return ShulkerBoxItemUtil.getMaxCount(itemStack);
-    }
-
-    @Redirect(method = "addStack(ILnet/minecraft/item/ItemStack;)I", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;getMaxCount()I", ordinal = -1))
-    private int addStackGetMaxCount(ItemStack itemStack) {
-        return ShulkerBoxItemUtil.getMaxCount(itemStack);
-    }
-
-    // 避免死循环
-    @Redirect(method = "offer", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;getMaxCount()I", ordinal = 0))
-    private int offerGetMaxCount(ItemStack itemStack) {
-        return ShulkerBoxItemUtil.getMaxCount(itemStack);
     }
 }

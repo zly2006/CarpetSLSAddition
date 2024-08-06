@@ -5,7 +5,6 @@ import carpet.CarpetServer;
 import com.github.zly2006.carpetslsaddition.command.BotCommand;
 import com.github.zly2006.carpetslsaddition.command.HatCommand;
 import com.github.zly2006.carpetslsaddition.command.SitCommand;
-import com.github.zly2006.carpetslsaddition.network.pca.PcaSyncProtocol;
 import com.github.zly2006.carpetslsaddition.util.access.SettingsManagerAccessor;
 import com.google.common.collect.Maps;
 import com.google.gson.Gson;
@@ -39,13 +38,10 @@ public class ServerMain implements ModInitializer, CarpetExtension {
     public static ServerMain INSTANCE;
     public static MinecraftServer server;
 
-    public static final boolean tisCarpetLoaded = FabricLoader.getInstance().isModLoaded("carpet-tis-addition");
-
     @Override
     public void onInitialize() {
         INSTANCE = this;
         CarpetServer.manageExtension(this);
-        PcaSyncProtocol.init();
     }
 
     @Override

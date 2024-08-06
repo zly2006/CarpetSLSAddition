@@ -1,8 +1,6 @@
 package com.github.zly2006.carpetslsaddition.mixin.player;
 
 import com.github.zly2006.carpetslsaddition.SLSCarpetSettings;
-import me.fallenbreath.conditionalmixin.api.annotation.Condition;
-import me.fallenbreath.conditionalmixin.api.annotation.Restriction;
 import net.minecraft.entity.player.PlayerAbilities;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -12,9 +10,6 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
-@Restriction(
-        conflict = @Condition("pca")
-)
 @Mixin(PlayerInventory.class)
 public abstract class MixinPlayerInventory implements Inventory, Nameable {
     @Redirect(method = "insertStack(ILnet/minecraft/item/ItemStack;)Z", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/PlayerEntity;getAbilities()Lnet/minecraft/entity/player/PlayerAbilities;"))

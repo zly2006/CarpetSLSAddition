@@ -1,7 +1,7 @@
 package com.github.zly2006.carpetslsaddition.util;
 
 public interface SitEntity {
-    boolean isSitEntity();
+    boolean carpetSLSAddition$isSitEntity();
 
-    void setSitEntity(boolean sitEntity);
+    void carpetSLSAddition$setSitEntity(boolean sitEntity);
 }

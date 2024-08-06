@@ -15,14 +15,8 @@ public class SLSCarpetSettings {
     @Rule(categories = {CARPET_ID, RuleCategory.OPTIMIZATION})
     public static int skipTicksForJoblessVillager = 0;
 
-    @Rule(categories = {CARPET_ID, RuleCategory.OPTIMIZATION}, options = {"-1", "24", "50"})
-    public static int maxVillagersInABlock = -1;
-
     @Rule(categories = {CARPET_ID, RuleCategory.CREATIVE})
     public static boolean creativeNoInfinitePickup = false;
-
-    @Rule(categories = {CARPET_ID})
-    public static boolean autoUrl = false;
 
     @Rule(categories = {CARPET_ID, RuleCategory.OPTIMIZATION})
     public static boolean noBatSpawning = false;
@@ -47,9 +41,6 @@ public class SLSCarpetSettings {
 
     @Rule(categories = {CARPET_ID, RuleCategory.CREATIVE})
     public static boolean oldRedstoneConnectionLogic = false;
-
-    @Rule(categories = {CARPET_ID, RuleCategory.OPTIMIZATION})
-    public static boolean optimizedOnDragonRespawn = false;
 
     @Rule(categories = {CARPET_ID, RuleCategory.FEATURE})
     public static int netherPortalSize = 21;

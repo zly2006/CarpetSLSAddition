@@ -283,7 +283,7 @@ public class BotCommand {
             return 0;
         }
         else {
-            ((PlayerAccess) player).setDisplayName(Text.empty().append(Text.literal("[%s] ".formatted(source.getName())).setStyle(Style.EMPTY.withColor(Formatting.AQUA))).append(Text.literal(playerName).setStyle(Style.EMPTY)));
+            ((PlayerAccess) player).carpetSLSAddition$setDisplayName(Text.empty().append(Text.literal("[%s] ".formatted(source.getName())).setStyle(Style.EMPTY.withColor(Formatting.AQUA))).append(Text.literal(playerName).setStyle(Style.EMPTY)));
             ServerMain.server.getPlayerManager().broadcast(Text.empty()
                     .append(Text.literal("假人").setStyle(Style.EMPTY.withColor(Formatting.GREEN)))
                     .append(Text.literal(playerName).setStyle(Style.EMPTY.withColor(Formatting.GOLD).withBold(true)))

@@ -11,6 +11,7 @@
   ],
   "mixins": [
     "block.BlockPatternTestTransformInvoker",
+    "block.MixinNetherPortal",
     "block.MixinRedstoneWireBlock",
     "carpet.MixinFakePlayer",
     "carpet.MixinSettingsManager",

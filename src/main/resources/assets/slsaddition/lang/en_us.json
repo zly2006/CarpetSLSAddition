@@ -54,5 +54,6 @@
   "carpet.rule.pcaSyncPlayerEntity.extra.3": "OPS_AND_SELF: carpet bot and self data will be sync, and op can sync everyone's player entity data.",
   "carpet.rule.pcaSyncPlayerEntity.extra.4": "EVERYONE: everyone's player entity will be sync",
   "carpet.rule.emptyShulkerBoxStack.extra.0": "Empty shulker boxes can stack in a player's inventory or hand",
-  "carpet.rule.emptyShulkerBoxStack.extra.1": "Empty shulker boxes will not stack in other inventories, such as chests or hoppers"
+  "carpet.rule.emptyShulkerBoxStack.extra.1": "Empty shulker boxes will not stack in other inventories, such as chests or hoppers",
+  "carpet.rule.netherPortalSize.desc": "Max size of nether portal"
 }

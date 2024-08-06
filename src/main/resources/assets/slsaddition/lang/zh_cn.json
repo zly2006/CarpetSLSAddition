@@ -54,5 +54,6 @@
   "carpet.rule.pcaSyncPlayerEntity.extra.3": "OPS_AND_SELF：地毯 mod 召唤出的 bot 和玩家自己的数据可以被同步，op 可以同步所有玩家的数据",
   "carpet.rule.pcaSyncPlayerEntity.extra.4": "EVERYONE：所有人的数据都可以被同步",
   "carpet.rule.emptyShulkerBoxStack.extra.0": "空潜影盒可以在玩家的背包进行自动堆叠，同时玩家可以手动堆叠空潜影盒",
-  "carpet.rule.emptyShulkerBoxStack.extra.1": "但是空潜影盒无法在容器中自动堆叠，比如箱子，漏斗"
+  "carpet.rule.emptyShulkerBoxStack.extra.1": "但是空潜影盒无法在容器中自动堆叠，比如箱子，漏斗",
+  "carpet.rule.netherPortalSize.desc": "地狱传送门的最大尺寸"
 }

@@ -382,10 +382,10 @@ public class BotCommand {
             bot.fixStartingPosition = () -> bot.refreshPositionAndAngles(pos.x, pos.y, pos.z, (float) yaw, (float) pitch);
             server.getPlayerManager().onPlayerConnect(new FakeClientConnection(NetworkSide.SERVERBOUND), bot, new ConnectedClientData(gameprofile, 0, bot.getClientOptions(), false));
 
-            bot.teleport(worldIn, pos.x, pos.y, pos.z, (float) yaw, (float) pitch);
+            bot.teleport(worldIn, pos.x, pos.y, pos.z, (float) yaw, (float) pitch, true);
             bot.setHealth(20.0F);
             bot.unsetRemoved();
-            bot.getAttributeInstance(EntityAttributes.GENERIC_STEP_HEIGHT).setBaseValue(0.6F);
+            bot.getAttributeInstance(EntityAttributes.STEP_HEIGHT).setBaseValue(0.6F);
             bot.interactionManager.changeGameMode(GameMode.SURVIVAL);
 
             server.getPlayerManager().sendToDimension(new EntitySetHeadYawS2CPacket(bot, (byte) (bot.headYaw * 256 / 360)), dimensionId);//bot.dimension);

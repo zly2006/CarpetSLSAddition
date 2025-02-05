@@ -10,6 +10,7 @@
     "block.MixinNetherPortal",
     "block.MixinRedstoneWireBlock",
     "carpet.MixinEntityPlayerMPFake",
+    "carpet.MixinPlayerCommand",
     "datapack.MixinVanillaResourcePackProvider",
     "elytra.MixinElytraItem",
     "elytra.MixinItem",

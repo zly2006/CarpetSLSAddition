@@ -48,6 +48,7 @@
   "carpet.rule.elytraCraftable.desc": "Make elytra craftable for Minecraft 1.20.6+ (eltra wont disappear when crafting)",
   "carpet.rule.botMaxOnlineTime.desc": "Set the maximum living time of the bot which create by carpet sls addition.",
   "carpet.rule.spectatorCannotUseLeash.desc": "If a player is a spectator, they cannot use the leash.",
+  "carpet.rule.offlineFakePlayers.desc": "假人强制离线uuid",
   "carpet.rule.armadilloImmediateDespawns.desc": "Armadillos will despawn immediately if they are 128 blocks away from the player.",
 
   "carpet.rule.skipTicksForJoblessVillager.extra.0": "Set to 0 to maintain the vanilla behavior",

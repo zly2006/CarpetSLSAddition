@@ -61,5 +61,8 @@ public class SLSCarpetSettings {
     public static boolean armadilloImmediateDespawns = false;
 
     @Rule(categories = {SLSA, RuleCategory.FEATURE})
+    public static boolean offlineFakePlayers = false;
+
+    @Rule(categories = {SLSA, RuleCategory.FEATURE})
     public static int netherPortalSize = 21;
 }

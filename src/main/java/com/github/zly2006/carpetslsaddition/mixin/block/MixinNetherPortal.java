@@ -16,4 +16,13 @@ public class MixinNetherPortal {
     private int portalSize(int original) {
         return SLSCarpetSettings.netherPortalSize;
     }
+
+    @ModifyConstant(
+            method = "*",
+            constant = @Constant(intValue = 21),
+            require = 0
+    )
+    private static int portalSize_1(int original) {
+        return SLSCarpetSettings.netherPortalSize;
+    }
 }

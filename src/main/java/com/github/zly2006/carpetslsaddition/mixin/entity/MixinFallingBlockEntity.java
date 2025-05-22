@@ -12,7 +12,6 @@ import net.minecraft.item.Items;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
@@ -26,18 +25,16 @@ import java.util.function.Predicate;
 @Mixin(FallingBlockEntity.class)
 public abstract class MixinFallingBlockEntity extends Entity {
 
-    @Shadow private BlockState block;
+    @Shadow private BlockState blockState;
     @Shadow private boolean destroyedOnLanding;
-
-    @Shadow public abstract BlockPos getFallingBlockPos();
 
     public MixinFallingBlockEntity(EntityType<?> type, World world) {
         super(type, world);
     }
 
     @Inject(method = "handleFallDamage", at = @At(value = "TAIL"))
-    private void handleFallDamage(float fallDistance, float damageMultiplier, DamageSource damageSource, CallbackInfoReturnable<Boolean> cir) {
-        if (!SLSCarpetSettings.obtainableReinforcedDeepSlate || !this.block.isIn(BlockTags.ANVIL)) {
+    private void handleFallDamage(double fallDistance, float damagePerDistance, DamageSource damageSource, CallbackInfoReturnable<Boolean> cir) {
+        if (!SLSCarpetSettings.obtainableReinforcedDeepSlate || !this.blockState.isIn(BlockTags.ANVIL)) {
             return;
         }
 
@@ -65,7 +62,7 @@ public abstract class MixinFallingBlockEntity extends Entity {
         this.destroyedOnLanding = true;
 
 
-        world.playSoundAtBlockCenter(this.getBlockPos(), SoundEvents.BLOCK_ANVIL_USE, SoundCategory.BLOCKS, 1.0F, 1.0F, false);
+        world.playSound(this, this.getBlockPos(), SoundEvents.BLOCK_ANVIL_USE, SoundCategory.BLOCKS, 1.0F, 1.0F);
 
         var coreEntity = new ItemEntity(world, entity.getX(), entity.getY(), entity.getZ(), new ItemStack(Items.REINFORCED_DEEPSLATE, 1));
         coreEntity.setPickupDelay(40);

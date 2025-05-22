@@ -28,7 +28,7 @@ import java.util.UUID;
 
 @Mixin(EntityPlayerMPFake.class)
 public abstract class MixinEntityPlayerMPFake extends ServerPlayerEntity implements SLSBotAccessor {
-    @Shadow public abstract void kill();
+    @Shadow public abstract void kill(Text reason);
 
     @Unique
     private boolean bot = false;
@@ -70,15 +70,17 @@ public abstract class MixinEntityPlayerMPFake extends ServerPlayerEntity impleme
         long liveTime = currentTime - spawnTime;
 
         if (liveTime > SLSCarpetSettings.botMaxOnlineTime * 1000) {
-            ServerMain.server.getPlayerManager().broadcast(
-                    Text.literal(Translations.tr("carpet.slsa.bot.bot_timeout").formatted(this.getNameForScoreboard(), getFormattedTime(SLSCarpetSettings.botMaxOnlineTime)))
-                            .setStyle(
-                                    Style.EMPTY.withColor(Formatting.RED)
-                            ),
-                    false
-            );
+            var messageOnKick = Text.literal(
+                    Translations.tr("carpet.slsa.bot.bot_timeout")
+                            .formatted(
+                                    this.getNameForScoreboard(),
+                                    getFormattedTime(SLSCarpetSettings.botMaxOnlineTime)
+                            )
+            ).setStyle(Style.EMPTY.withColor(Formatting.RED));
 
-            this.kill();
+            ServerMain.server.getPlayerManager().broadcast(messageOnKick, false);
+
+            this.kill(messageOnKick);
         }
     }
 

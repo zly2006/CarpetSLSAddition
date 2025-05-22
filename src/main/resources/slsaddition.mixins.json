@@ -11,7 +11,6 @@
     "block.MixinRedstoneWireBlock",
     "carpet.MixinEntityPlayerMPFake",
     "datapack.MixinVanillaResourcePackProvider",
-    "elytra.MixinElytraItem",
     "elytra.MixinItem",
     "entity.MixinArmadilloEntity",
     "entity.MixinArmorStandEntity",

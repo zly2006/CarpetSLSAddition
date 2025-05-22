@@ -13,8 +13,6 @@ import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
-import com.mojang.brigadier.tree.ArgumentCommandNode;
-import com.mojang.brigadier.tree.LiteralCommandNode;
 import me.lucko.fabric.api.permissions.v0.Permissions;
 import net.minecraft.SharedConstants;
 import net.minecraft.command.argument.DimensionArgumentType;
@@ -24,7 +22,7 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.network.NetworkSide;
 import net.minecraft.network.packet.c2s.common.SyncedClientOptions;
-import net.minecraft.network.packet.s2c.play.EntityPositionS2CPacket;
+import net.minecraft.network.packet.s2c.play.EntityPositionSyncS2CPacket;
 import net.minecraft.network.packet.s2c.play.EntitySetHeadYawS2CPacket;
 import net.minecraft.network.packet.s2c.play.PlayerListS2CPacket;
 import net.minecraft.registry.RegistryKey;
@@ -32,7 +30,6 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.PlayerManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ConnectedClientData;
-import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Style;
@@ -145,7 +142,7 @@ public class BotCommand {
                 source.getPosition()
         );
         Vec2f facing = getArgOrDefault(
-                () -> RotationArgumentType.getRotation(context, "direction").toAbsoluteRotation(source),
+                () -> RotationArgumentType.getRotation(context, "direction").getRotation(source),
                 source.getRotation()
         );
         RegistryKey<World> dimType = getArgOrDefault(
@@ -234,14 +231,14 @@ public class BotCommand {
             bot.fixStartingPosition = () -> bot.refreshPositionAndAngles(pos.x, pos.y, pos.z, (float) yaw, (float) pitch);
             server.getPlayerManager().onPlayerConnect(new FakeClientConnection(NetworkSide.SERVERBOUND), bot, new ConnectedClientData(gameprofile, 0, bot.getClientOptions(), false));
 
-            bot.teleport(worldIn, pos.x, pos.y, pos.z, (float) yaw, (float) pitch);
+            bot.teleport(worldIn, pos.x, pos.y, pos.z, Set.of(), (float) yaw, (float) pitch, true);
             bot.setHealth(20.0F);
             bot.unsetRemoved();
-            bot.getAttributeInstance(EntityAttributes.GENERIC_STEP_HEIGHT).setBaseValue(0.6F);
+            bot.getAttributeInstance(EntityAttributes.STEP_HEIGHT).setBaseValue(0.6F);
             bot.interactionManager.changeGameMode(GameMode.SURVIVAL);
 
             server.getPlayerManager().sendToDimension(new EntitySetHeadYawS2CPacket(bot, (byte) (bot.headYaw * 256 / 360)), dimensionId);//bot.dimension);
-            server.getPlayerManager().sendToDimension(new EntityPositionS2CPacket(bot), dimensionId);
+            server.getPlayerManager().sendToDimension(EntityPositionSyncS2CPacket.create(bot), dimensionId);
 
             bot.getDataTracker().set(PlayerEntity.PLAYER_MODEL_PARTS, (byte) 0x7f); // show all model layers (incl. capes)
             bot.getAbilities().flying = false;

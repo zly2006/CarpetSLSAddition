@@ -8,6 +8,7 @@ import com.github.zly2006.carpetslsaddition.command.SitCommand;
 import com.google.common.collect.Maps;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.Strictness;
 import com.mojang.brigadier.CommandDispatcher;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
@@ -30,7 +31,7 @@ public class ServerMain implements ModInitializer, CarpetExtension {
     public static final Version MOD_VERSION = FabricLoader.getInstance().getModContainer(MOD_ID).get().getMetadata().getVersion();
 
     public static final Logger LOGGER = LogManager.getLogger(MOD_ID);
-    static final Gson GSON = new GsonBuilder().setLenient().create();  // 使用宽容模式，避免部分开发者在书写JSON时不遵守RFC 4627规范
+    static final Gson GSON = new GsonBuilder().setStrictness(Strictness.LENIENT).create();  // 使用宽容模式，避免部分开发者在书写JSON时不遵守RFC 4627规范
 
     public static ServerMain INSTANCE;
     public static MinecraftServer server;

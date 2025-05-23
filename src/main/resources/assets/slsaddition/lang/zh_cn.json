@@ -51,7 +51,6 @@
   "carpet.rule.printStackTraceOnVillagerSpawn.desc": "当有村民生成时，将会生成一份包含调用栈的报告，显示在控制端中",
   "carpet.rule.elytraCraftable.desc": "使鞘翅在 1.20.6+ 可合成 (合成时不会消失)",
   "carpet.rule.botMaxOnlineTime.desc": "设置由Carpet SLS Addition生成的Bot的最大存活时间",
-  "carpet.rule.offlineFakePlayers.desc": "假人强制离线uuid",
   "carpet.rule.spectatorCannotUseLeash.desc": "若启用，则观察者模式的玩家不再能使用拴绳，已经拴住动物的拴绳也会自动失效",
   "carpet.rule.rebornOOMSuppressor.desc": "去掉新版本额外的检查，让OOM更新抑制器在 1.20.5+ 再次可用",
   "carpet.rule.offlineFakePlayers.desc": "假人将使用离线皮肤和uuid",

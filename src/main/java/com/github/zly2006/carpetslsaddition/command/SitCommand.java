@@ -25,7 +25,7 @@ public class SitCommand {
                     World world = player.getWorld();
 
                     ArmorStandEntity armorStandEntity = new ArmorStandEntity(world, player.getX(), player.getY(), player.getZ());
-                    ((SitEntity) armorStandEntity).setSitEntity(true);
+                    ((SitEntity) armorStandEntity).carpet_SLS_Addition$setSitEntity(true);
                     world.spawnEntity(armorStandEntity);
                     player.setSneaking(false);
                     player.startRiding(armorStandEntity);

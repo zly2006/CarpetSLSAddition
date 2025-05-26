@@ -19,8 +19,6 @@ public abstract class MixinServerPlayerEntity extends PlayerEntity  {
     @Shadow
     public ServerPlayNetworkHandler networkHandler;
 
-    @Shadow public abstract boolean isSpectator();
-
     @Unique
     private int sneakTimes = 0;
     @Unique
@@ -48,7 +46,7 @@ public abstract class MixinServerPlayerEntity extends PlayerEntity  {
                 sneakTimes += 1;
                 if (sneakTimes == 3) {
                     ArmorStandEntity armorStandEntity = new ArmorStandEntity(getWorld(), this.getX(), this.getY() - 0.16, this.getZ());
-                    ((SitEntity) armorStandEntity).setSitEntity(true);
+                    ((SitEntity) armorStandEntity).carpet_SLS_Addition$setSitEntity(true);
                     getWorld().spawnEntity(armorStandEntity);
                     this.setSneaking(false);
                     this.startRiding(armorStandEntity);

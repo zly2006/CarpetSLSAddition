@@ -1,6 +1,7 @@
 package com.github.zly2006.carpetslsaddition.mixin.block;
 
 import com.github.zly2006.carpetslsaddition.SLSCarpetSettings;
+import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -19,5 +20,21 @@ public class MixinRedstoneWireBlock {
         else {
             return instance.getBlock();
         }
+    }
+
+    @ModifyExpressionValue(
+            method = "getStateForNeighborUpdate",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/block/RedstoneWireBlock;canRunOnTop(Lnet/minecraft/world/BlockView;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/BlockState;)Z"
+            ),
+            allow = 1
+    )
+    private boolean modifyOnUpdate(boolean canRunOnTop) {
+        if (SLSCarpetSettings.oldRedstoneConnectionLogic) {
+            return true;
+        }
+
+        return canRunOnTop;
     }
 }

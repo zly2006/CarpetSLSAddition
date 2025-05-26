@@ -1,7 +1,6 @@
 package com.github.zly2006.carpetslsaddition.mixin.screen;
 
 import com.github.zly2006.carpetslsaddition.SLSCarpetSettings;
-import net.minecraft.entity.player.PlayerAbilities;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.screen.AnvilScreenHandler;
 import org.spongepowered.asm.mixin.Mixin;
@@ -14,16 +13,14 @@ public class MixinAnvilScreenHandler {
             method = "updateResult",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/entity/player/PlayerEntity;getAbilities()Lnet/minecraft/entity/player/PlayerAbilities;"
+                    target = "Lnet/minecraft/entity/player/PlayerEntity;isInCreativeMode()Z"
             )
     )
-    private PlayerAbilities updateResult(PlayerEntity instance) {
+    private boolean updateResult(PlayerEntity player) {
         if (SLSCarpetSettings.creativeObeyEnchantmentRule) {
-            var ability = new PlayerAbilities();
-            ability.creativeMode = false;
-            return ability;
+            return false;
         }
 
-        return instance.getAbilities();
+        return player.isInCreativeMode();
     }
 }

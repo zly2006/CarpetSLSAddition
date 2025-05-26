@@ -5,7 +5,7 @@ import carpet.api.settings.RuleCategory;
 
 public class SLSCarpetSettings {
     public static final String NEED_CLIENT = "needClient";  // 需要客户端安装SLS-Addition或实现相关支持
-    public static final String FROM_AMS = "AMS";
+    public static final String FROM_AMS = "FROM-AMS";
     public static final String SLSA = "SLS";
 
     @Rule(categories = {SLSA, RuleCategory.SURVIVAL})
@@ -65,4 +65,7 @@ public class SLSCarpetSettings {
 
     @Rule(categories = {SLSA, RuleCategory.FEATURE})
     public static int netherPortalSize = 21;
+
+    @Rule(categories = {SLSA, RuleCategory.CREATIVE})
+    public static boolean rebornOOMSuppressor = false;
 }

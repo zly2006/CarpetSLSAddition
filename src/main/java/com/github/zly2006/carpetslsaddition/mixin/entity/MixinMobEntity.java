@@ -11,8 +11,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(MobEntity.class)
 public abstract class MixinMobEntity implements Leashable {
-    @Shadow public abstract void detachLeash();
-
     @Inject(method = "tick", at = @At("HEAD"))
     private void onTick(CallbackInfo ci) {
         if (!SLSCarpetSettings.spectatorCannotUseLeash ||

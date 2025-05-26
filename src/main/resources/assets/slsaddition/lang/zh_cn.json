@@ -1,6 +1,7 @@
 {
   "carpet.category.pca": "PCA适配",
   "carpet.category.needClient": "需要客户端支持",
+  "carpet.category.FROM-AMS": "AMS移植",
   "carpet.category.protocol": "协议",
 
 
@@ -26,6 +27,8 @@
   "carpet.rule.botMaxOnlineTime.name": "Bot最大存活时间",
   "carpet.rule.spectatorCannotUseLeash.name": "观察者模式禁用拴绳",
   "carpet.rule.armadilloImmediateDespawns.desc": "当犰狳远离玩家128格时，立即消失",
+  "carpet.rule.rebornOOMSuppressor.name": "还原OOM检测行为",
+  "carpet.rule.offlineFakePlayers.name": "假人离线模式",
 
   "carpet.rule.obtainableReinforcedDeepSlate.desc": "当铁砧砸在9*64个深板岩的掉落物上时，可以获得强化深板岩",
   "carpet.rule.skipTicksForJoblessVillager.desc": "对于无业/傻子村民，执行设定数量的tick运算后，跳过1tick的运算",
@@ -48,8 +51,9 @@
   "carpet.rule.printStackTraceOnVillagerSpawn.desc": "当有村民生成时，将会生成一份包含调用栈的报告，显示在控制端中",
   "carpet.rule.elytraCraftable.desc": "使鞘翅在 1.20.6+ 可合成 (合成时不会消失)",
   "carpet.rule.botMaxOnlineTime.desc": "设置由Carpet SLS Addition生成的Bot的最大存活时间",
-  "carpet.rule.offlineFakePlayers.desc": "假人强制离线uuid",
   "carpet.rule.spectatorCannotUseLeash.desc": "若启用，则观察者模式的玩家不再能使用拴绳，已经拴住动物的拴绳也会自动失效",
+  "carpet.rule.rebornOOMSuppressor.desc": "去掉新版本额外的检查，让OOM更新抑制器在 1.20.5+ 再次可用",
+  "carpet.rule.offlineFakePlayers.desc": "假人将使用离线皮肤和uuid",
 
   "carpet.rule.skipTicksForJoblessVillager.extra.0": "设置为0则保持原版行为",
   "carpet.rule.skipTicksForJoblessVillager.extra.1": "设置为大于0的数，将在设置的基础上将该值+1",
@@ -63,7 +67,5 @@
 
   "carpet.slsa.bot.bot_timeout": "假人%s在线时间已超出服务器设定的最大在线时长%s，已被自动踢出",
   "carpet.slsa.bot.respawned": "假人%s的在线时长已重置！",
-  "carpet.slsa.bot.not_a_bot": "假人%s不是由Carpet SLS Addition生成的，所以你不能重置它的在线时间！",
-
-  "carpet.slsa.block.deep_slate_core": "深板岩核心"
+  "carpet.slsa.bot.not_a_bot": "假人%s不是由Carpet SLS Addition生成的，所以你不能重置它的在线时间！"
 }

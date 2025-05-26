@@ -19,7 +19,7 @@ public class HatCommand {
                     ItemStack stack = player.getMainHandStack();
                     ItemStack head = player.getEquippedStack(EquipmentSlot.HEAD);
                     player.equipStack(EquipmentSlot.HEAD, stack);
-                    player.getInventory().setStack(player.getInventory().selectedSlot, head);
+                    player.getInventory().setStack(player.getInventory().getSelectedSlot(), head);
                     player.currentScreenHandler.syncState();
 
                     return 1;

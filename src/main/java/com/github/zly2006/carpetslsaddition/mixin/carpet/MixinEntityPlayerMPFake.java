@@ -13,16 +13,22 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
+import net.minecraft.util.UserCache;
+import net.minecraft.util.Uuids;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+import java.util.Optional;
+import java.util.UUID;
 
 @Mixin(EntityPlayerMPFake.class)
 public abstract class MixinEntityPlayerMPFake extends ServerPlayerEntity implements SLSBotAccessor {
-    @Shadow public abstract void kill();
+    @Shadow public abstract void kill(Text reason);
 
     @Unique
     private boolean bot = false;
@@ -64,16 +70,28 @@ public abstract class MixinEntityPlayerMPFake extends ServerPlayerEntity impleme
         long liveTime = currentTime - spawnTime;
 
         if (liveTime > SLSCarpetSettings.botMaxOnlineTime * 1000) {
-            ServerMain.server.getPlayerManager().broadcast(
-                    Text.literal(Translations.tr("carpet.slsa.bot.bot_timeout").formatted(this.getNameForScoreboard(), getFormattedTime(SLSCarpetSettings.botMaxOnlineTime)))
-                            .setStyle(
-                                    Style.EMPTY.withColor(Formatting.RED)
-                            ),
-                    false
-            );
+            var messageOnKick = Text.literal(
+                    Translations.tr("carpet.slsa.bot.bot_timeout")
+                            .formatted(
+                                    this.getNameForScoreboard(),
+                                    getFormattedTime(SLSCarpetSettings.botMaxOnlineTime)
+                            )
+            ).setStyle(Style.EMPTY.withColor(Formatting.RED));
 
-            this.kill();
+            ServerMain.server.getPlayerManager().broadcast(messageOnKick, false);
+
+            this.kill(messageOnKick);
         }
+    }
+
+    @Redirect(method = "createFake", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/UserCache;findByName(Ljava/lang/String;)Ljava/util/Optional;"))
+    private static Optional<GameProfile> onCreate(UserCache instance, String name) {
+        if (SLSCarpetSettings.offlineFakePlayers) {
+            UUID uuid = Uuids.getOfflinePlayerUuid(name);
+            return Optional.of(new GameProfile(uuid, name));
+        }
+
+        return instance.findByName(name);
     }
 
     @Unique

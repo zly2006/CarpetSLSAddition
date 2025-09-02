@@ -9,6 +9,8 @@
     "block.BlockPatternTestTransformInvoker",
     "block.MixinNetherPortal",
     "block.MixinRedstoneWireBlock",
+    "block.MixinTrialSpawnerData",
+    "block.MixinTrialSpawnerState",
     "carpet.MixinEntityPlayerMPFake",
     "carpet.MixinPlayerCommand",
     "datapack.MixinVanillaResourcePackProvider",

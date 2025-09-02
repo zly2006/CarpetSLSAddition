@@ -3,3 +3,4 @@ accessible class net/minecraft/world/block/ChainRestrictedNeighborUpdater$Entry
 accessible class net/minecraft/entity/mob/EndermanEntity$PickUpBlockGoal
 accessible method net/minecraft/entity/Entity unsetRemoved ()V
 accessible field net/minecraft/entity/player/PlayerEntity PLAYER_MODEL_PARTS Lnet/minecraft/entity/data/TrackedData;
+accessible field net/minecraft/block/spawner/TrialSpawnerData spawnedMobsAlive Ljava/util/Set;

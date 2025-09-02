@@ -65,4 +65,7 @@ public class SLSCarpetSettings {
 
     @Rule(categories = {SLSA, RuleCategory.FEATURE})
     public static int netherPortalSize = 21;
+
+    @Rule(categories = {SLSA, RuleCategory.FEATURE})
+    public static int trialSpawnerCD = -1;
 }
